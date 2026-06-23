@@ -1585,6 +1585,14 @@ ul,li{
     display: block;
 }
 
+@media (max-width: 991px) {
+    .hero-bg img {
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -1696,14 +1704,20 @@ ul,li{
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 46px;
+        font-size: 32px;
         letter-spacing: 1px;
     }
     .hero-subtitle {
-        font-size: 15px;
+        font-size: 14px;
+        margin-bottom: 15px;
     }
     .hero-desc {
-        font-size: 16px;
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+    .hero-btn {
+        padding: 10px 20px;
+        font-size: 14px;
     }
 }
 
