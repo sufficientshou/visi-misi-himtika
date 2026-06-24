@@ -274,11 +274,42 @@
                     function scrollMisi(direction) {
                         const container = document.getElementById('misiCarousel');
                         if (!container) return;
-                        const card = container.querySelector('div.snap-center');
-                        if (!card) return;
-                        const cardWidth = card.offsetWidth;
+                        const cards = container.querySelectorAll('div.snap-center');
+                        if (cards.length === 0) return;
+                        const cardWidth = cards[0].offsetWidth;
                         const gap = 20; 
-                        container.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+                        
+                        if (direction === 1 && container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
+                            const clone = cards[0].cloneNode(true);
+                            container.appendChild(clone);
+                            container.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+                            setTimeout(() => {
+                                container.classList.remove('scroll-smooth');
+                                void container.offsetHeight;
+                                container.scrollLeft = 0;
+                                clone.remove();
+                                setTimeout(() => container.classList.add('scroll-smooth'), 50);
+                            }, 500);
+                        } else if (direction === -1 && container.scrollLeft <= 5) {
+                            const clone = cards[cards.length - 1].cloneNode(true);
+                            container.insertBefore(clone, cards[0]);
+                            container.classList.remove('scroll-smooth');
+                            void container.offsetHeight;
+                            container.scrollLeft = cardWidth + gap;
+                            setTimeout(() => {
+                                container.classList.add('scroll-smooth');
+                                container.scrollTo({ left: 0, behavior: 'smooth' });
+                                setTimeout(() => {
+                                    container.classList.remove('scroll-smooth');
+                                    void container.offsetHeight;
+                                    clone.remove();
+                                    container.scrollLeft = container.scrollWidth;
+                                    setTimeout(() => container.classList.add('scroll-smooth'), 50);
+                                }, 500);
+                            }, 50);
+                        } else {
+                            container.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+                        }
                     }
                 </script>
             </div>
@@ -347,11 +378,42 @@
                     function scrollTujuan(direction) {
                         const container = document.getElementById('tujuanCarousel');
                         if (!container) return;
-                        const card = container.querySelector('div.snap-center');
-                        if (!card) return;
-                        const cardWidth = card.offsetWidth;
+                        const cards = container.querySelectorAll('div.snap-center');
+                        if (cards.length === 0) return;
+                        const cardWidth = cards[0].offsetWidth;
                         const gap = 30; 
-                        container.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+                        
+                        if (direction === 1 && container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
+                            const clone = cards[0].cloneNode(true);
+                            container.appendChild(clone);
+                            container.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+                            setTimeout(() => {
+                                container.classList.remove('scroll-smooth');
+                                void container.offsetHeight;
+                                container.scrollLeft = 0;
+                                clone.remove();
+                                setTimeout(() => container.classList.add('scroll-smooth'), 50);
+                            }, 500);
+                        } else if (direction === -1 && container.scrollLeft <= 5) {
+                            const clone = cards[cards.length - 1].cloneNode(true);
+                            container.insertBefore(clone, cards[0]);
+                            container.classList.remove('scroll-smooth');
+                            void container.offsetHeight;
+                            container.scrollLeft = cardWidth + gap;
+                            setTimeout(() => {
+                                container.classList.add('scroll-smooth');
+                                container.scrollTo({ left: 0, behavior: 'smooth' });
+                                setTimeout(() => {
+                                    container.classList.remove('scroll-smooth');
+                                    void container.offsetHeight;
+                                    clone.remove();
+                                    container.scrollLeft = container.scrollWidth;
+                                    setTimeout(() => container.classList.add('scroll-smooth'), 50);
+                                }, 500);
+                            }, 50);
+                        } else {
+                            container.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+                        }
                     }
                 </script>
             </div>

@@ -1586,8 +1586,18 @@ ul,li{
 }
 
 @media (max-width: 991px) {
-    .hero-bg img {
+    .hero-section {
         height: 100vh;
+        min-height: 500px;
+    }
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+    }
+    .hero-bg img {
+        height: 100%;
+        width: 100%;
         object-fit: cover;
         object-position: center;
     }
