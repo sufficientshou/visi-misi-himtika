@@ -1338,7 +1338,7 @@ ul,li{
 
 .site-footer {
 		
-		background: linear-gradient(180deg, #1C3631 0%, #162E2B 50%, #162E2B 100%);
+		background: linear-gradient(180deg, #1C3631 0%, #162E2B 100%);
 		padding: 36px 40px 32px 40px;
 		color: white;
 		transition: all 0.5s ease;
@@ -1645,31 +1645,68 @@ ul,li{
     margin-bottom: 40px;
 }
 
-.hero-btn {
+.hero-btn-left {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     padding: 14px 32px;
-    border-radius: 30px;
-    background-color: #e2c764;
-    color: #0f1e1c;
-    font-family: "Figtree", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    background-color: #d6c26a;
+    border: 1px solid #facc15;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
     cursor: pointer;
-    border: 1px solid #e2c764;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
 }
 
-.hero-btn:hover {
-    background-color: #d4b855;
-    border-color: #d4b855;
+.hero-btn-left:hover {
+    color: #ffffff;
 }
 
-.hero-btn svg {
-    display: inline-block;
-    vertical-align: middle;
+.hero-btn-left span {
+    color: #000000;
+    font-size: 16px;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+
+.hero-btn-left:hover span {
+    color: #ffffff;
+}
+
+.hero-btn-left .btn-icon-top {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transform: rotate(180deg);
+    transition: all 0.5s ease;
+}
+
+.hero-btn-left:hover .btn-icon-top {
+    transform: rotate(0deg);
+}
+
+.btnleft::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: -40px;
+    background-color: #917b31;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+.btnleft:hover::before {
+    width: 160%;
 }
 
 
@@ -1704,20 +1741,20 @@ ul,li{
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 32px;
+        font-size: 42px;
         letter-spacing: 1px;
     }
     .hero-subtitle {
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 15px;
     }
     .hero-desc {
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 25px;
     }
     .hero-btn {
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 12px 24px;
+        font-size: 15px;
     }
 }
 
@@ -1726,7 +1763,7 @@ ul,li{
 
 
 .visi-section {
-    background-color: #EFECE1; 
+    background-color: #F0EDD8; 
     padding: 80px 0;
     width: 100%;
 }
